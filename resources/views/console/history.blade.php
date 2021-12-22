@@ -21,9 +21,9 @@
             @if ($status!=null)
             <div class="alert alert-warning" role="alert">
                 {{ $status }}
-            </div>    
+            </div>
             @endif
-            
+
             <div>
                 <div class="row row-cols-md-3" >
                     @php

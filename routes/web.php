@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestingDev;
 use Illuminate\Support\Facades\Route;
 
-// HOME 
+// HOME
 Route::get('/', [HomeController::class,'home']);
 Route::get('/register',[HomeController::class,'register']);
 Route::post('/registerValidity',[HomeController::class,'registerValidity']);
@@ -25,7 +25,7 @@ Route::view('/notLoggedIn','forbidden.notLoggedIn');
 Route::view('/adminCannotOrder','forbidden.adminCannotOrder');
 
 // MIDDLEWARE GROUP ADMIN
-Route::group(['middleware'=>['adminProtectedPage']], function(){
+Route::group(['middleware'=>['adminProtectedPage']], static function(){
 
     // ADMIN HOME
     Route::get('/admin',[AdminController::class,'home']);
@@ -46,7 +46,7 @@ Route::group(['middleware'=>['adminProtectedPage']], function(){
 });
 
 // MIDDLEWARE GROUP CUSTOMER
-Route::group(['middleware'=>['customerProtectedPage']], function(){
+Route::group(['middleware'=>['customerProtectedPage']], static function(){
 
     // CONSOLE
     Route::post('/console/order',[ConsoleController::class,'order']);

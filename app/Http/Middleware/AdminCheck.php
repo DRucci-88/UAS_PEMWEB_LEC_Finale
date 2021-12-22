@@ -17,10 +17,10 @@ class AdminCheck
     public function handle(Request $request, Closure $next)
     {
         $user = session()->get('user');
-        if($user==null || $user->role != 'admin'){
+        if($user===null || $user->role !== 'admin'){
             return redirect('/notAdmin');
         }
-        
+
         return $next($request);
     }
 }
